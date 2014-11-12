@@ -6,7 +6,6 @@ import os
 CONST_LED_PIN = 12;
 CONST_SWITCH_PIN = 26;
 
-led_state = 0
 led_action = "off";
 
 GPIO.setwarnings(False);
