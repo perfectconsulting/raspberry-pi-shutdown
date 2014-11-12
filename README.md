@@ -8,7 +8,7 @@ Installation
 
 1. copy the script to a local folder on the pi (in this case /home/pi)
 2. add the following entry to crontab
-@reboot sudo /home/pi/python/shutdown.sh
+@reboot sudo /home/pi/shutdown.sh
 3. restart the Raspberry Pi
 
 you will need to construct the follow circuit 
