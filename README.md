@@ -1,7 +1,7 @@
 raspberry-pi-shutdown
 =====================
 
-A simple shutdown button for the Raspberry Pi. The script will turn the led on to indiradte that the script is running correctly.When you press the shutdown button. the light will start to flash quickly until the Raspberry Pu shutsdown.
+A simple shutdown button for the Raspberry Pi. The script will turn the led on to indircaye that the script is running correctly.When you press the shutdown button. the light will start to flash quickly until the Raspberry Pu shutsdown.
 
 Installation
 ============
