@@ -14,9 +14,11 @@ def led(debug):
     while led_action != "stop":
         if debug: print led_action; 
         if led_action == "off":   
-            GPIO.output(CONST_LED_PIN, 0);        
+            GPIO.output(CONST_LED_PIN, 0); 
+            time.sleep(1);            
         elif led_action == "on":       
             GPIO.output(CONST_LED_PIN, 1);
+            time.sleep(1);            
         elif led_action ==  "slowflash":
             GPIO.output(CONST_LED_PIN,1);
             time.sleep(2);
