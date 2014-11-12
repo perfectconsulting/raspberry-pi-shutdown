@@ -6,7 +6,7 @@ A simple shutdown button for the Raspberry Pi. The script will turn the led on t
 Installation
 ============
 
-1. copy the script to a local folder on the pi (in this case /home/pi)
+1. copy the scripts to a local folder on the pi (in this case /home/pi)
 2. add the following entry to crontab
 @reboot sudo /home/pi/shutdown.sh
 3. restart the Raspberry Pi
