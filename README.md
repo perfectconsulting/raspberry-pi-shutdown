@@ -10,4 +10,4 @@ Setup
 2. add the following entry to crontab **@reboot sudo /home/pi/shutdown.sh**
 3. restart the Raspberry Pi
 
-![Alt text](https://cloud.githubusercontent.com/assets/8858414/5014109/10ff3d22-6a8b-11e4-8eb2-f2dbd0075e47.png "Circuit")
+![circuit](https://cloud.githubusercontent.com/assets/8858414/5050038/aed6d102-6c22-11e4-9178-1cc8cb32a057.png "Circuit")
