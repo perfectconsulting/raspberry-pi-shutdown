@@ -18,7 +18,7 @@ try:
     while not GPIO.input(CONST_SWITCH_PIN):
         time.sleep(0.5);
  
-    #os.system("sudo shutdown -hP now");
+    os.system("sudo shutdown -hP now");
 
     while True:
             GPIO.output(CONST_LED_PIN,1);
