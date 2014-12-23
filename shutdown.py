@@ -1,48 +1,12 @@
-# Copyright 2011-2013 S J Consulting Ltd. All Rights Reserved.
-#
-# Licensed under the Apache License, Version 2.0 (the "License"). You
-# may not use this file except in compliance with the License. A copy of
-# the License is located at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0.html
-#
-# or in the "license" file accompanying this file. This file is
-# distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
-# ANY KIND, either express or implied. See the License for the specific
-# language governing permissions and limitations under the License.
-
 import thread
 import RPi.GPIO as GPIO
-import time
 import os
+import time
 
 CONST_LED_PIN = 12;
 CONST_SWITCH_PIN = 26;
 
-led_action = "off";
-
 GPIO.setwarnings(False);
-
-def led(debug):
-    while led_action != "stop":
-        if debug: print led_action; 
-        if led_action == "off":   
-            GPIO.output(CONST_LED_PIN, 0); 
-            time.sleep(1);            
-        elif led_action == "on":       
-            GPIO.output(CONST_LED_PIN, 1);
-            time.sleep(1);            
-        elif led_action ==  "slowflash":
-            GPIO.output(CONST_LED_PIN,1);
-            time.sleep(2);
-            GPIO.output(CONST_LED_PIN,0);
-            time.sleep(2);
-        elif led_action == "fastflash":
-            GPIO.output(CONST_LED_PIN,1);
-            time.sleep(0.1);
-            GPIO.output(CONST_LED_PIN,0);
-            time.sleep(0.1);
-
    
 GPIO.cleanup();
 GPIO.setmode(GPIO.BOARD)
@@ -50,16 +14,17 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(CONST_LED_PIN,GPIO.OUT)
 GPIO.setup(CONST_SWITCH_PIN,GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
-thread.start_new_thread(led, (False,)); 
-led_action="on";
-
 try:
+    while not GPIO.input(CONST_SWITCH_PIN):
+        time.sleep(0.5);
+ 
+    #os.system("sudo shutdown -hP now");
+
     while True:
-        if  GPIO.input(CONST_SWITCH_PIN):
-            led_action="fastflash";
-            print "shutting down now";
-            time.sleep(2);
-            os.system("sudo shutdown -hP now");
+            GPIO.output(CONST_LED_PIN,1);
+            time.sleep(0.1);
+            GPIO.output(CONST_LED_PIN,0);
+            time.sleep(0.1);
 
 except KeyboardInterrupt:
 	GPIO.cleanup();
