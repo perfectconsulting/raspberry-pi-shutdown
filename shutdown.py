@@ -15,8 +15,11 @@ GPIO.setup(CONST_LED_PIN,GPIO.OUT)
 GPIO.setup(CONST_SWITCH_PIN,GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 try:
+
+    GPIO.output(CONST_LED_PIN,1);
+    
     while not GPIO.input(CONST_SWITCH_PIN):
-        time.sleep(0.5);
+        time.sleep(0.1);
  
     os.system("sudo shutdown -hP now");
 
